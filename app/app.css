@@ -1,8 +1,66 @@
 /* app css stylesheet */
+.container {
+  width: 960px;
+  margin: 0 auto;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.container-content {
+  flex: 1;
+  position: relative;
+  padding: 10px;
+}
+.connect__status--status {
+  width: 16px;
+  height: 16px;
+  border-radius: 10px;
+  display: inline-block;
+  vertical-align: text-top;
+}
+.connect__status--online {
+  background-color: #57df60;
+}
+.connect__status--offline {
+  background-color: #666;
+}
 
+.connect__status {
+  max-width: 300px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
 
+.connectButton {
+  margin-top: 24px;
+}
 
 footer {
   color: #666;
-  margin: 0 0 0 20px;
+  margin: 0 0 10px 0px;
+  text-align: center;
+}
+
+/* 网格布局 */
+.Grid {
+  display: flex;
+}
+.Grid-cell {
+  flex: 1;
+}
+.Grid-cell.u-full {
+  flex: 0 0 100%;
+}
+.Grid-cell.u-1of2 {
+  flex: 0 0 50%;
+}
+.Grid-cell.u-1of3 {
+  flex: 0 0 33.3333%;
+}
+.Grid-cell.u-1of4 {
+  flex: 0 0 25%;
+}
+.Grid-cell.u-1of5 {
+  flex: 0 0 20%;
 }

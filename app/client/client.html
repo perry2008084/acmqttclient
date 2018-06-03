@@ -1,1 +1,112 @@
-<p>This is the partial for view 1.</p>
+<div class="connect">
+  <!-- 终端状态 -->
+  <div class="connect__status">
+    <span class="connect__status--status" ng-class="{'connect__status--online': vm.status === 'online', 'connect__status--offline': vm.status === 'offline'}"></span>
+    <span class="connect__status--text">{{vm.status}}</span>
+  </div>
+
+  <!-- 连接信息 -->
+  <div class="grid-container">
+    <div class="grid-x grid-margin-x">
+      <div class="large-4 cell">
+        <label for="">服务器</label>
+        <input type="text" value="broker.mqttdashboard.com" ng-model="vm.input.host">
+      </div>
+      <div class="large-2 cell">
+        <label for="">端口</label>
+        <input type="text" value="18083" ng-model="vm.input.port">
+      </div>
+      <div class="large-4 cell">
+        <label for="">ClientID</label>
+        <input type="text">
+      </div>
+      <div class="large-2 cell">
+        <button type="button" class="button connectButton">{{vm.connectBtnText}}</button>
+      </div>
+    </div>
+    <div class="grid-x grid-margin-x">
+      <div class="large-4 cell">
+        <label for="">用户名</label>
+        <input type="text" ng-model="vm.input.username">
+      </div>
+      <div class="large-4 cell">
+        <label for="">密码</label>
+        <input type="text" ng-model="vm.input.password">
+      </div>
+      <div class="large-2 cell">
+        <label for="">保持连接</label>
+        <input type="text" ng-model="vm.input.keepalive" value="60">
+      </div>
+      <div class="large-2 cell">
+        <label for="">清空会话</label>
+        <input type="checkbox" class="checky" checked="checked" ng-disabled="vm.isConnect">
+      </div>
+    </div>
+    <div class="grid-x grid-margin-x">
+        <div class="large-8 cell">
+          <label for="">长连接Topic</label>
+          <input type="text" ng-model="vm.input.longwilltopic">
+        </div>
+        <div class="large-2 cell">
+          <label for="">长连接Qos</label>
+          <select id="lwQosInput" ng-model="vm.input.longwillqos">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+          </select>
+        </div>
+        <div class="large-2 cell">
+          <label for="">长连接保持</label>
+          <input type="checkbox" ng-model="vm.input.longwillretain">
+        </div>
+      </div>
+      <div class="grid-x grid-margin-x">
+        <div class="large-12 cell">
+          <label for="">长连接消息</label>
+          <textarea ng-model="vm.input.longwillmessage"></textarea>
+        </div>
+      </div>
+  </div>
+</div>
+
+<div class="content grid-x grid-margin-x">
+  <div class="pubsub columns large-6">
+    <h3>发布</h3>
+    <div class="row panel">
+      <div class="large-12 columns">
+        <div class="row">
+          <div class="large-6 columns">
+            <label>Topic</label>
+            <input type="text" ng-model="vm.input.pubTopic">
+          </div>
+          <div class="large-2 columns">
+            <label>Qos</label>
+            <select>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+            </select>
+          </div>
+          <div class="large-2 columns">
+            <label>保留</label>
+            <input type="checkbox" ng-mode="vm.input.pubRetain">
+          </div>
+          <div class="large-2 columns">
+            <button class="small button" ng-click="vm.publish()">发布</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-12 columns">
+            <label>消息</label>
+            <textarea cols="30" rows="10"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="log columns large-6">
+    <button class="small button" ng-click="vm.clearLog()">清除</button>
+    <textarea name="" id="" cols="30" rows="10" ng-model="vm.log"></textarea>
+  </div>
+</div>
