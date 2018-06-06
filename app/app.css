@@ -32,8 +32,16 @@
   top: 10px;
 }
 
-.connectButton {
+.connectButton, .publishButton, .subscribeButton {
   margin-top: 24px;
+}
+
+.content {
+  padding: 10px;
+}
+
+.log {
+  border-left: 1px dashed #999;
 }
 
 footer {
